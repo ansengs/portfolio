@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrew Sengsourichanh — Developer & Automation Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080b10;--surf:#0e1117;--surf2:#141820;--border:#1c2235;--border2:#252d42;
+  --cyan:#00e5ff;--amber:#ffb300;--green:#69ff47;--text:#dde4f0;--muted:#5a6480;--muted2:#8892aa;
+  --d:'Exo 2',sans-serif;--m:'JetBrains Mono',monospace;--b:'Nunito',sans-serif;
+}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--b);font-size:14px;line-height:1.6}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--surf)}::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:2px}
+#circuit{position:fixed;inset:0;z-index:0;opacity:.055;pointer-events:none}
+#app{position:relative;z-index:1;display:flex;flex-direction:column;height:100vh}
+
+/* Topbar & Navigation */
+#topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:15px 36px;border-bottom:1px solid var(--border);background:rgba(8,11,16,.92);backdrop-filter:blur(16px);flex-shrink:0;z-index:10;}
+.logo{font-family:var(--d);font-weight:900;font-size:18px;letter-spacing:.04em;color:var(--text)}
+.logo span{color:var(--cyan)}
+.logo small{font-family:var(--m);font-size:10px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;display:block;line-height:1;margin-top:4px}
+#tabs{display:flex;flex-wrap:wrap;gap:4px;background:var(--surf);border:1px solid var(--border);border-radius:6px;padding:4px}
+.tab{padding:8px 16px;border-radius:4px;font-family:var(--m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .18s;border:none;background:none;white-space:nowrap;flex:1;text-align:center}
+.tab:hover{color:var(--text)}
+.tab.active{background:var(--surf2);color:var(--cyan);border:1px solid var(--border2)}
+
+/* Main Content Area */
+#content{position:relative;flex:1;overflow:hidden}
+.panel{position:absolute;inset:0;overflow-y:auto;padding:40px 48px 80px;opacity:0;transform:translateX(20px);pointer-events:none;transition:opacity .28s ease,transform .28s ease;-webkit-overflow-scrolling:touch}
+.panel.active{opacity:1;transform:translateX(0);pointer-events:all}
+.panel.exit{opacity:0;transform:translateX(-20px)}
+.panel-inner{max-width:920px;margin:0 auto}
+
+/* Home Panel */
+#panel-home{display:flex;align-items:center;justify-content:center;padding:20px 48px}
+.home-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;max-width:1000px;width:100%}
+.h-tag{font-family:var(--m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.h-name{font-family:var(--d);font-weight:900;font-size:clamp(32px,5vw,64px);line-height:.95;letter-spacing:-.02em;margin-bottom:6px}
+.h-name .stroke{color:transparent;-webkit-text-stroke:1.5px var(--cyan)}
+.h-title{font-family:var(--m);font-size:11px;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.h-bio{font-size:14px;color:var(--muted2);max-width:440px;margin-bottom:26px;line-height:1.7}
+.h-bio strong{color:var(--text)}
+.h-links{display:flex;gap:10px;flex-wrap:wrap}
+.hlink{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:4px;font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s}
+.hlink-primary{background:var(--cyan);color:var(--bg);font-weight:600}
+.hlink-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,229,255,.2)}
+.hlink-ghost{border:1px solid var(--border2);color:var(--muted2)}
+.hlink-ghost:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.stat-strip{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.stat{background:var(--surf);border:1px solid var(--border);border-radius:6px;padding:11px 16px;text-align:center;transition:border-color .2s;flex:1;min-width:100px}
+.stat:hover{border-color:var(--cyan)}
+.stat-btn{cursor:pointer;font:inherit;text-align:center;transition:border-color .2s,transform .2s,box-shadow .2s}
+.stat-btn:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,229,255,.15)}
+.stat-btn:active{transform:translateY(-1px)}
+.stat-n{font-family:var(--d);font-weight:900;font-size:24px;color:var(--cyan);line-height:1}
+.stat-l{font-family:var(--m);font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+
+/* Terminal Area */
+.term{background:var(--surf);border:1px solid var(--border2);border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);width:100%}
+.term-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;background:var(--surf2);border-bottom:1px solid var(--border)}
+.dot{width:10px;height:10px;border-radius:50%}.dot-r{background:#ff5f57}.dot-y{background:#ffbd2e}.dot-g{background:#28c840}
+.term-title{font-family:var(--m);font-size:10px;color:var(--muted);margin-left:8px}
+.term-body{padding:16px;font-family:var(--m);font-size:12px;line-height:2;overflow-x:auto}
+.t-p{color:var(--green)}.t-c{color:var(--text)}.t-o{color:var(--muted2);padding-left:10px}.t-k{color:var(--cyan)}.t-v{color:var(--amber)}
+.t-cur{display:inline-block;width:7px;height:13px;background:var(--cyan);vertical-align:text-bottom;animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Generic Panel Layouts */
+.panel-head{margin-bottom:28px}
+.panel-ey{font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px}
+.panel-title{font-family:var(--d);font-weight:900;font-size:clamp(26px,4vw,42px);line-height:1;letter-spacing:-.02em}
+.panel-title em{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--muted)}
+.panel-bar{width:40px;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);margin-top:10px}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.sk-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:20px;transition:all .22s;position:relative;overflow:hidden}
+.sk-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--cc,var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.sk-card:hover::before{transform:scaleX(1)}
+.sk-card:hover{border-color:var(--cc,var(--cyan));transform:translateY(-3px)}
+.sk-icon{font-size:22px;margin-bottom:10px;display:block}
+.sk-title{font-family:var(--d);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--cc,var(--cyan));margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:5px}
+.pill{padding:3px 8px;border-radius:3px;font-family:var(--m);font-size:10px;background:rgba(255,255,255,.04);border:1px solid var(--border2);color:var(--muted2);transition:all .15s}
+.pill:hover{color:var(--text);border-color:var(--cc,var(--cyan));background:rgba(255,255,255,.07)}
+
+/* Experience */
+.exp-timeline{position:relative;padding-left:28px;display:flex;flex-direction:column;gap:16px}
+.exp-timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--cyan),var(--border),transparent)}
+.exp-item{position:relative;background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:18px 22px;transition:all .22s;cursor:default}
+.exp-item::before{content:'';position:absolute;left:-25px;top:20px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--border2);transition:border-color .2s,background .2s}
+.exp-item:hover{border-color:var(--cyan);transform:translateX(4px)}
+.exp-item:hover::before{border-color:var(--cyan);background:var(--cyan)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.exp-role{font-family:var(--d);font-weight:700;font-size:15px}
+.exp-date{font-family:var(--m);font-size:10px;color:var(--cyan);letter-spacing:.08em;white-space:nowrap}
+.exp-company{font-family:var(--m);font-size:11px;color:var(--amber);letter-spacing:.06em;margin-bottom:8px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:4px}
+.exp-bullets li{font-size:13px;color:var(--muted2);padding-left:14px;position:relative}
+.exp-bullets li::before{content:'>';position:absolute;left:0;color:var(--cyan);font-weight:700}
+
+/* Projects */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.proj-card{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:all .22s;position:relative;overflow:hidden;cursor:default}
+.proj-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:0;transition:opacity .3s}
+.proj-card:hover{border-color:var(--amber);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.4)}
+.proj-card:hover::after{opacity:1}
+.proj-icon{font-size:26px}.proj-gh{font-size:11px;color:var(--amber);opacity:.7;margin-left:4px}
+.proj-title{font-family:var(--d);font-weight:700;font-size:14px;line-height:1.2}
+.proj-desc{font-size:12px;color:var(--muted2);line-height:1.6;flex:1}
+.proj-tags{display:flex;flex-wrap:wrap;gap:4px}
+.ptag{padding:2px 7px;border-radius:2px;font-family:var(--m);font-size:9px;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,179,0,.07);border:1px solid rgba(255,179,0,.2);color:var(--amber)}
+.achievement{display:flex;align-items:center;gap:16px;padding:14px 18px;background:linear-gradient(135deg,rgba(0,229,255,.05),rgba(255,179,0,.05));border:1px solid var(--border2);border-radius:8px;margin-top:14px}
+.ach-icon{font-size:26px;flex-shrink:0}
+.ach-title{font-family:var(--d);font-weight:700;font-size:14px;color:var(--amber);margin-bottom:2px}
+.ach-sub{font-size:12px;color:var(--muted2)}
+
+/* Contact */
+#panel-contact{display:flex;align-items:center;justify-content:center}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;max-width:860px;width:100%}
+.contact-bio{font-size:14px;color:var(--muted2);line-height:1.7;margin-bottom:22px}
+.contact-bio strong{color:var(--text)}
+.contact-links{display:flex;flex-direction:column;gap:8px}
+.clink{display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--surf);border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all .2s;color:var(--text);word-break:break-all}
+.clink:hover{border-color:var(--cyan);transform:translateX(6px);color:var(--cyan)}
+.clink-icon{font-size:17px;width:22px;text-align:center}
+.clink-label{font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:64px;flex-shrink:0}
+.clink-val{font-size:12px;color:inherit}
+.cert-list{display:flex;flex-direction:column;gap:10px}
+.cert-item{display:flex;gap:14px;align-items:flex-start;padding:14px;background:var(--surf);border:1px solid var(--border);border-radius:8px;transition:all .2s}
+.cert-item:hover{border-color:var(--green)}
+.cert-badge-sm{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:rgba(105,255,71,.07);border:1px solid rgba(105,255,71,.15)}
+.cert-name{font-family:var(--d);font-weight:700;font-size:13px;margin-bottom:2px}
+.cert-from{font-family:var(--m);font-size:10px;color:var(--green);letter-spacing:.05em}
+
+/* Responsive Overrides */
+@media(max-width:850px){
+  .home-grid{grid-template-columns:1fr;gap:30px}
+  .term{max-width:600px;margin:0 auto}
+  .h-bio{max-width:100%}
+}
+@media(max-width:600px){
+  #topbar{flex-direction:column;align-items:flex-start;padding:12px 20px}
+  #tabs{width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .panel{padding:20px 20px 80px}
+  .h-name{text-align:center}
+  .h-bio{text-align:center;margin:0 auto 26px}
+  .h-links, .stat-strip{justify-content:center}
+  .exp-item{padding:14px 16px}
+  .exp-timeline::before{left:4px}
+  .exp-item::before{left:-25px}
+  .achievement{flex-direction:column;text-align:center;gap:8px}
+}
+</style>
+</head>
+<body>
+<svg id="circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs><pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0L0 0 0 60" fill="none" stroke="#00e5ff" stroke-width="0.4"/></pattern></defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g stroke="#00e5ff" stroke-width="1.2" fill="none">
+    <polyline points="0,180 120,180 180,120 360,120 420,180 600,180"/>
+    <polyline points="720,0 720,120 840,240 840,360 960,480 1200,480"/>
+    <polyline points="0,540 240,540 300,480 480,480 540,540 780,540"/>
+    <polyline points="300,900 300,720 480,720 540,660 900,660 960,720 1440,720"/>
+  </g>
+  <g fill="#00e5ff">
+    <circle cx="180" cy="120" r="3.5"/><circle cx="420" cy="180" r="3.5"/>
+    <circle cx="840" cy="360" r="3.5"/><circle cx="300" cy="480" r="3.5"/>
+    <circle cx="540" cy="540" r="3.5"/><circle cx="540" cy="660" r="3.5"/>
+  </g>
+</svg>
+<div id="app">
+  <div id="topbar">
+    <div class="logo">Andrew<span>.</span>Dev<small>Wooster, OH &nbsp;·&nbsp; Developer &amp; Automation Eng.</small></div>
+    <div id="tabs">
+      <button class="tab active" data-panel="home">Home</button>
+      <button class="tab" data-panel="skills">Skills</button>
+      <button class="tab" data-panel="experience">Experience</button>
+      <button class="tab" data-panel="projects">Projects</button>
+      <button class="tab" data-panel="contact">Contact</button>
+    </div>
+  </div>
+  <div id="content">
+
+    <div class="panel active" id="panel-home">
+      <div class="home-grid">
+        <div>
+          <p class="h-tag">// Developer &amp; Automation Engineer</p>
+          <h1 class="h-name">Andrew<br><span class="stroke">Sengsourichanh</span></h1>
+          <p class="h-title">React Native &nbsp;·&nbsp; PLC &nbsp;·&nbsp; Robotics &nbsp;·&nbsp; Python</p>
+          <p class="h-bio">Cross-platform apps with <strong>React Native</strong>. Web experiences with <strong>WordPress &amp; JavaScript</strong>. Industrial systems with <strong>Allen-Bradley PLCs, Fanuc &amp; Yaskawa robotics</strong>. One engineer. Both worlds.</p>
+          <div class="h-links">
+            <a href="https://github.com/ansengs" target="_blank" class="hlink hlink-primary">GitHub</a>
+            <a href="https://linkedin.com/in/ansengs" target="_blank" class="hlink hlink-ghost">LinkedIn</a>
+            <a href="mailto:amsengsourichanh@gmail.com" class="hlink hlink-ghost">Email Me</a>
+          </div>
+          <div class="stat-strip">
+            <button class="stat stat-btn" onclick="goTab('contact')" title="View Certifications"><div class="stat-n">4</div><div class="stat-l">Certifications</div></button>
+            <button class="stat stat-btn" onclick="goTab('skills')" title="View Skills"><div class="stat-n">8+</div><div class="stat-l">Tech Skills</div></button>
+            <button class="stat stat-btn" onclick="goTab('skills')" title="View Robotics Skills"><div class="stat-n">3</div><div class="stat-l">Robot Platforms</div></button>
+            <button class="stat stat-btn" onclick="goTab('projects')" title="View Projects &amp; Achievements"><div class="stat-n">4th</div><div class="stat-l">RAMTEC State</div></button>
+          </div>
+        </div>
+        <div>
+          <div class="term">
+            <div class="term-bar">
+              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+              <span class="term-title">andrew@dev ~ profile.json</span>
+            </div>
+            <div class="term-body">
+              <div><span class="t-p">$</span> <span class="t-c">cat profile.json</span></div>
+              <div class="t-o">{</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"name"</span>: <span class="t-v">"Andrew Sengsourichanh"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"location"</span>: <span class="t-v">"Wooster, OH"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"frameworks"</span>: [<span class="t-v">"React Native"</span>, <span class="t-v">"Expo"</span>],</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"plc"</span>: <span class="t-v">"Allen-Bradley Logix5000"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"robots"</span>: [<span class="t-v">"Fanuc"</span>, <span class="t-v">"Yaskawa"</span>],</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"github"</span>: <span class="t-v">"github.com/ansengs"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"open_to"</span>: <span class="t-v">"internship"</span></div>
+              <div class="t-o">}</div>
+              <div><span class="t-p">$</span> <span class="t-cur"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-skills">
+      <div class="panel-inner">
+        <div class="panel-head"><p class="panel-ey">// 02 — Skills</p><h2 class="panel-title">What I <em>know.</em></h2><div class="panel-bar"></div></div>
+        <div class="skills-grid">
+          <div class="sk-card" style="--cc:#00e5ff"><span class="sk-icon">📱</span><div class="sk-title">Mobile &amp; App Dev</div><div class="pills"><span class="pill">React Native</span><span class="pill">iOS &amp; Android</span><span class="pill">Cross-Platform</span><span class="pill">Expo</span></div></div>
+          <div class="sk-card" style="--cc:#00e5ff"><span class="sk-icon">🌐</span><div class="sk-title">Web Development</div><div class="pills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">WordPress</span><span class="pill">REST APIs</span></div></div>
+          <div class="sk-card" style="--cc:#00e5ff"><span class="sk-icon">🎨</span><div class="sk-title">Design &amp; UI/UX</div><div class="pills"><span class="pill">Adobe XD</span><span class="pill">Prototyping</span><span class="pill">Wireframing</span><span class="pill">Responsive Design</span></div></div>
+          <div class="sk-card" style="--cc:#69ff47"><span class="sk-icon">⚙️</span><div class="sk-title">PLC &amp; Automation</div><div class="pills"><span class="pill">Allen-Bradley</span><span class="pill">Logix5000</span><span class="pill">Studio 5000</span><span class="pill">Ladder Logic</span></div></div>
+          <div class="sk-card" style="--cc:#69ff47"><span class="sk-icon">🤖</span><div class="sk-title">Industrial Robotics</div><div class="pills"><span class="pill">Fanuc</span><span class="pill">Yaskawa Motoman DX100</span><span class="pill">Robot Programming</span><span class="pill">Motion Control</span></div></div>
+          <div class="sk-card" style="--cc:#ffb300"><span class="sk-icon">🐍</span><div class="sk-title">Scripting &amp; Tools</div><div class="pills"><span class="pill">Python</span><span class="pill">Lua</span><span class="pill">FastAPI</span><span class="pill">BeautifulSoup</span><span class="pill">SQLite3</span><span class="pill">Git / GitHub</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-experience">
+      <div class="panel-inner">
+        <div class="panel-head"><p class="panel-ey">// 03 — Experience &amp; Education</p><h2 class="panel-title">Where I've <em>worked.</em></h2><div class="panel-bar"></div></div>
+        <div class="exp-timeline">
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Automation Technician</div><div class="exp-date">Jun 2018 – Sep 2018</div></div>
+            <div class="exp-company">RS&amp;B Industries — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Maintained and ensured proper function of automated manufacturing equipment</li><li>Applied PLC programming to troubleshoot and optimize machine performance</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Electronics Assembler</div><div class="exp-date">Jul 2020 – Mar 2021</div></div>
+            <div class="exp-company">MC Products — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Soldered circuit boards and assembled sensors and cable assemblies to production specifications</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">General Cleaner</div><div class="exp-date">Oct 2022 – Aug 2023</div></div>
+            <div class="exp-company">Summit Building Services · IH Services / Newbold Services — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Maintained commercial facilities across multiple contracts to consistent standards</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Retail Associate</div><div class="exp-date">Mar 2024 – Dec 2024</div></div>
+            <div class="exp-company">Walmart — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Stocked shelves and maintained store organization</li><li>Provided customer service and assisted shoppers with product location</li></ul>
+          </div>
+          <div class="exp-item" style="border-color:rgba(0,229,255,.2)">
+            <div class="exp-header"><div class="exp-role">Robotics &amp; Automation — Certificate</div><div class="exp-date">Aug 2017 – May 2018</div></div>
+            <div class="exp-company">Wayne County Schools Career Center — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Hands-on training in robotics systems, automation technology, and PLC programming</li><li>Earned PLC Rockwell Level I, Fanuc Level 1, and Yaskawa Motoman certifications</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-projects">
+      <div class="panel-inner">
+        <div class="panel-head"><p class="panel-ey">// 04 — Projects</p><h2 class="panel-title">What I've <em>built.</em></h2><div class="panel-bar"></div></div>
+        <div class="proj-grid">
+          <div class="proj-card" onclick="window.open('https://github.com/ansengs/tic-tac-toe-online','_blank')" style="cursor:pointer"><div class="proj-icon">🎮</div><div class="proj-title">Tic-Tac-Toe Online <span class="proj-gh">↗</span></div><div class="proj-desc">Online multiplayer Tic-Tac-Toe with real-time gameplay powered by Socket.io. Full-stack JavaScript app with live room-based matchmaking between players.</div><div class="proj-tags"><span class="ptag">JavaScript</span><span class="ptag">Socket.io</span><span class="ptag">Full-Stack</span><span class="ptag">Multiplayer</span></div></div>
+          
+          <div class="proj-card" onclick="window.open('https://github.com/ansengs/Nexus-Web-Scrapper','_blank')" style="cursor:pointer"><div class="proj-icon">🕷️</div><div class="proj-title">Nexus Scraper <span class="proj-gh">↗</span></div><div class="proj-desc">Intelligent full-stack web scraper with a natural-language chat interface. React Native frontend (iOS/Android/Web) + Python FastAPI backend with NLP intent classification, BeautifulSoup scraping, and SQLite3 session persistence.</div><div class="proj-tags"><span class="ptag">React Native</span><span class="ptag">FastAPI</span><span class="ptag">NLP</span><span class="ptag">BeautifulSoup</span><span class="ptag">SQLite3</span></div></div>
+          <div class="proj-card"><div class="proj-icon">⚙️</div><div class="proj-title">PLC Control Programs</div><div class="proj-desc">Industrial ladder logic for Allen-Bradley / Logix5000 including safety interlocks and sequence control for robotic manufacturing cells.</div><div class="proj-tags"><span class="ptag">Allen-Bradley</span><span class="ptag">Ladder Logic</span><span class="ptag">Studio 5000</span></div></div>
+          <div class="proj-card" onclick="window.open('https://github.com/ansengs/NutriTrack','_blank')" style="cursor:pointer"><div class="proj-icon">🥗</div><div class="proj-title">NutriTrack <span class="proj-gh">↗</span></div><div class="proj-desc">Nutrition tracking web app backed by the USDA Food Database (SQLite3). Search real foods, log daily intake, and monitor nutritional targets — all in a single HTML file.</div><div class="proj-tags"><span class="ptag">HTML5</span><span class="ptag">JavaScript</span><span class="ptag">SQLite3</span><span class="ptag">USDA Data</span></div></div>
+          <div class="proj-card" style="cursor:default"><div class="proj-icon">🔤</div><div class="proj-title">LinguaSTEM — Language &amp; Math App</div><div class="proj-desc">STEM-driven language learning app covering alphabet roots, vocabulary, pronunciation, and reading/writing skills — with interactive quizzes and streak tracking.</div><div class="proj-tags"><span class="ptag">HTML5</span><span class="ptag">JavaScript</span><span class="ptag">Interactive</span><span class="ptag">Education</span><span class="ptag">NLP</span></div></div>
+        </div>
+        <div class="achievement">
+          <span class="ach-icon">🏆</span>
+          <div><div class="ach-title">4th Place — Ohio State RAMTEC Robotics Competition</div><div class="ach-sub">Recognized for excellence in automation and robotics problem-solving at the state level.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-contact">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="panel-head"><p class="panel-ey">// 05 — Contact</p><h2 class="panel-title">Let's <em>talk.</em></h2><div class="panel-bar"></div></div>
+          <p class="contact-bio">I'm actively looking for a <strong>minimum wage internship</strong> with a web dev or mobile app company in Ohio. I bring real skills, a unique cross-discipline background, and genuine drive to grow alongside experienced developers.</p>
+          <div class="contact-links">
+            <a href="mailto:amsengsourichanh@gmail.com" class="clink"><span class="clink-icon">✉️</span><span class="clink-label">Email</span><span class="clink-val">amsengsourichanh@gmail.com</span></a>
+            <a href="tel:+13309882311" class="clink"><span class="clink-icon">📞</span><span class="clink-label">Phone</span><span class="clink-val">(330) 988-2311</span></a>
+            <a href="https://github.com/ansengs" target="_blank" class="clink"><span class="clink-icon">🐙</span><span class="clink-label">GitHub</span><span class="clink-val">github.com/ansengs</span></a>
+            <a href="https://linkedin.com/in/ansengs" target="_blank" class="clink"><span class="clink-icon">💼</span><span class="clink-label">LinkedIn</span><span class="clink-val">linkedin.com/in/ansengs</span></a>
+            <div class="clink" style="cursor:default"><span class="clink-icon">📍</span><span class="clink-label">Location</span><span class="clink-val">Wooster, OH — Remote &amp; Hybrid OK</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="panel-head" style="margin-bottom:16px"><p class="panel-ey">// Certifications</p><h3 style="font-family:var(--d);font-weight:700;font-size:20px">What I've <em style="font-style:normal;color:transparent;-webkit-text-stroke:1px var(--muted)">earned.</em></h3></div>
+          <div class="cert-list">
+            <div class="cert-item"><div class="cert-badge-sm">⚡</div><div><div class="cert-name">PLC Rockwell Automation Level I</div><div class="cert-from">Allen-Bradley / Logix5000 · Wayne County Career Center</div></div></div>
+            <div class="cert-item"><div class="cert-badge-sm">🤖</div><div><div class="cert-name">Fanuc Level 1</div><div class="cert-from">Advanced Handling Tool Operations &amp; Programming</div></div></div>
+            <div class="cert-item"><div class="cert-badge-sm">🦾</div><div><div class="cert-name">Yaskawa Motoman DX100</div><div class="cert-from">Basic Programming &amp; Material Handling</div></div></div>
+            <div class="cert-item"><div class="cert-badge-sm">🦺</div><div><div class="cert-name">OSHA 10-Hour General Industry</div><div class="cert-from">U.S. Department of Labor</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+const tabs=document.querySelectorAll('.tab');let cur='home';
+function goTab(tgt){if(tgt===cur)return;const c=document.getElementById('panel-'+cur);c.classList.add('exit');c.classList.remove('active');setTimeout(()=>c.classList.remove('exit'),300);document.getElementById('panel-'+tgt).classList.add('active');tabs.forEach(x=>x.classList.remove('active'));document.querySelector('[data-panel="'+tgt+'"]').classList.add('active');cur=tgt;}
+tabs.forEach(t=>{t.addEventListener('click',()=>goTab(t.dataset.panel))});
+</script>
+</body>
+</html>
