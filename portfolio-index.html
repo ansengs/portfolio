@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrew Sengsourichanh — Developer &amp; Automation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg id="circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs><pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0L0 0 0 60" fill="none" stroke="#00e5ff" stroke-width="0.4"/></pattern></defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g stroke="#00e5ff" stroke-width="1.2" fill="none">
+    <polyline points="0,180 120,180 180,120 360,120 420,180 600,180"/>
+    <polyline points="720,0 720,120 840,240 840,360 960,480 1200,480"/>
+    <polyline points="0,540 240,540 300,480 480,480 540,540 780,540"/>
+    <polyline points="300,900 300,720 480,720 540,660 900,660 960,720 1440,720"/>
+  </g>
+  <g fill="#00e5ff">
+    <circle cx="180" cy="120" r="3.5"/><circle cx="420" cy="180" r="3.5"/>
+    <circle cx="840" cy="360" r="3.5"/><circle cx="300" cy="480" r="3.5"/>
+    <circle cx="540" cy="540" r="3.5"/><circle cx="540" cy="660" r="3.5"/>
+  </g>
+</svg>
+<div id="app">
+  <div id="topbar">
+    <div class="logo">Andrew<span>.</span>Dev<small>Wooster, OH &nbsp;·&nbsp; Developer &amp; Automation Eng.</small></div>
+    <div id="tabs">
+      <button class="tab active" data-panel="home">Home</button>
+      <button class="tab" data-panel="skills">Skills</button>
+      <button class="tab" data-panel="experience">Experience</button>
+      <button class="tab" data-panel="projects">Projects</button>
+      <button class="tab" data-panel="contact">Contact</button>
+    </div>
+  </div>
+  <div id="content">
+
+    <div class="panel active" id="panel-home">
+      <div class="home-grid">
+        <div>
+          <p class="h-tag">// Developer &amp; Automation Engineer</p>
+          <h1 class="h-name">Andrew<br><span class="stroke">Sengsourichanh</span></h1>
+          <p class="h-title">React Native &nbsp;·&nbsp; PLC &nbsp;·&nbsp; Robotics &nbsp;·&nbsp; Python</p>
+          <p class="h-bio">Bridging software and physical engineering. Building cross-platform apps with <strong>React Native</strong> and automating industrial systems with <strong>Allen-Bradley PLCs &amp; Robotics</strong>. Passionate about applying physics, mathematics, and code to solve real-world problems.</p>
+          <div class="h-links">
+            <a href="https://github.com/ansengs" target="_blank" class="hlink hlink-primary">GitHub</a>
+            <a href="https://www.linkedin.com/in/ansengs/" target="_blank" rel="noopener noreferrer" class="hlink hlink-ghost" aria-label="Open Andrew Sengsourichanh on LinkedIn">LinkedIn</a>
+            <a href="mailto:amsengsourichanh@gmail.com" class="hlink hlink-ghost">Email Me</a>
+          </div>
+          <div class="stat-strip">
+            <button class="stat stat-btn" onclick="goTab('contact')" title="View Certifications"><div class="stat-n">4</div><div class="stat-l">Certifications</div></button>
+            <button class="stat stat-btn" onclick="goTab('skills')" title="View Skills"><div class="stat-n">8+</div><div class="stat-l">Tech Skills</div></button>
+            <button class="stat stat-btn" onclick="goTab('skills')" title="View Robotics Skills"><div class="stat-n">3</div><div class="stat-l">Robot Platforms</div></button>
+            <button class="stat stat-btn" onclick="goTab('projects')" title="View Projects &amp; Achievements"><div class="stat-n">4th</div><div class="stat-l">RAMTEC State</div></button>
+          </div>
+        </div>
+        <div>
+          <div class="term">
+            <div class="term-bar">
+              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+              <span class="term-title">andrew@dev ~ profile.json</span>
+            </div>
+            <div class="term-body">
+              <div><span class="t-p">$</span> <span class="t-c">cat profile.json</span></div>
+              <div class="t-o">{</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"name"</span>: <span class="t-v">"Andrew Sengsourichanh"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"location"</span>: <span class="t-v">"Wooster, OH"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"linkedin"</span>: <span class="t-v">"linkedin.com/in/ansengs"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"frameworks"</span>: [<span class="t-v">"React Native"</span>, <span class="t-v">"Expo"</span>],</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"plc"</span>: <span class="t-v">"Allen-Bradley Logix5000"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"robots"</span>: [<span class="t-v">"Fanuc"</span>, <span class="t-v">"Yaskawa"</span>],</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"github"</span>: <span class="t-v">"github.com/ansengs"</span>,</div>
+              <div class="t-o">&nbsp;&nbsp;<span class="t-k">"open_to"</span>: <span class="t-v">"internship"</span></div>
+              <div class="t-o">}</div>
+              <div><span class="t-p">$</span> <span class="t-cur"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-skills">
+      <div class="panel-inner">
+        <div class="panel-head"><p class="panel-ey">// 02 — Skills</p><h2 class="panel-title">What I <em>know.</em></h2><div class="panel-bar"></div></div>
+        <div class="skills-grid">
+          <div class="sk-card" style="--cc:#00e5ff"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4"/></svg></span><div class="sk-title">Mobile &amp; App Dev</div><div class="pills"><span class="pill">React Native</span><span class="pill">iOS &amp; Android</span><span class="pill">Cross-Platform</span><span class="pill">Expo</span></div></div>
+          <div class="sk-card" style="--cc:#00e5ff"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></span><div class="sk-title">Web Development</div><div class="pills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">WordPress</span><span class="pill">REST APIs</span><span class="pill">Express.js</span></div></div>
+          <div class="sk-card" style="--cc:#00e5ff"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4.5-1 10-10a2.5 2.5 0 0 0-3.5-3.5l-10 10L4 20z"/><path d="M14 6l4 4"/></svg></span><div class="sk-title">Design &amp; UI/UX</div><div class="pills"><span class="pill">Adobe XD</span><span class="pill">Prototyping</span><span class="pill">Wireframing</span><span class="pill">Responsive Design</span><span class="pill">Hand Drawing</span></div></div>
+          <div class="sk-card" style="--cc:#69ff47"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></span><div class="sk-title">PLC &amp; Automation</div><div class="pills"><span class="pill">Allen-Bradley</span><span class="pill">Logix5000</span><span class="pill">Studio 5000</span><span class="pill">Ladder Logic</span></div></div>
+          <div class="sk-card" style="--cc:#69ff47"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M12 7V4M8.5 12h.01M15.5 12h.01M9 16h6M4 11H2M22 11h-2"/></svg></span><div class="sk-title">Industrial Robotics</div><div class="pills"><span class="pill">Fanuc</span><span class="pill">Yaskawa Motoman DX100</span><span class="pill">Robot Programming</span><span class="pill">Motion Control</span></div></div>
+          <div class="sk-card" style="--cc:#ffb300"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg></span><div class="sk-title">Scripting &amp; Tools</div><div class="pills"><span class="pill">Python</span><span class="pill">Lua</span><span class="pill">FastAPI</span><span class="pill">BeautifulSoup</span><span class="pill">SQLite3</span><span class="pill">Git / GitHub</span></div></div>
+          <div class="sk-card" style="--cc:#ffb300"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V9l6 4V9l6 4V7h6v14H3z"/><path d="M7 17h2M12 17h2M17 17h2"/></svg></span><div class="sk-title">Manufacturing</div><div class="pills"><span class="pill">Electronics Assembly</span><span class="pill">Soldering</span><span class="pill">Circuit Boards</span><span class="pill">Preventive Maintenance</span><span class="pill">Machine Diagnostics</span></div></div>
+          <div class="sk-card" style="--cc:#ff5f57"><span class="sk-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L11 20l-5-5 8.7-8.7z"/><path d="M7 17l-3 3"/></svg></span><div class="sk-title">Additional Interests</div><div class="pills"><span class="pill">DIY Remodeling</span><span class="pill">Auto Maintenance</span><span class="pill">Music Production</span><span class="pill">Linguistics</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-experience">
+      <div class="panel-inner">
+        <div class="panel-head"><p class="panel-ey">// 03 — Experience &amp; Education</p><h2 class="panel-title">Where I've <em>worked.</em></h2><div class="panel-bar"></div></div>
+        <div class="exp-timeline">
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Automation Technician</div><div class="exp-date">Jun 2018 – Sep 2018</div></div>
+            <div class="exp-company">RS&amp;B Industries — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Maintained and ensured proper function of automated manufacturing equipment</li><li>Applied PLC programming to troubleshoot and optimize machine performance</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Electronics Assembler</div><div class="exp-date">Jul 2020 – Mar 2021</div></div>
+            <div class="exp-company">MC Products — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Soldered circuit boards and assembled sensors and cable assemblies to production specifications</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">General Cleaner</div><div class="exp-date">Oct 2022 – Aug 2023</div></div>
+            <div class="exp-company">B&B Maintenance · Summit Building Services · IH Services / Newbold Services — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Maintained commercial facilities across multiple contracts to consistent standards</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Retail Associate</div><div class="exp-date">Mar 2024 – Dec 2024</div></div>
+            <div class="exp-company">Walmart — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Stocked shelves and maintained store organization</li><li>Provided customer service and assisted shoppers with product location</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Team Member</div><div class="exp-date">Apr 2026 – Present</div></div>
+            <div class="exp-company">Subway — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Delivered accurate, high-quality customer orders efficiently in a high-volume food service environment.</li></ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header"><div class="exp-role">Team Member</div><div class="exp-date">Nov 2019 – Feb 2020</div></div>
+            <div class="exp-company">Taco Bell — Wooster, OH</div>
+            <ul class="exp-bullets">
+              <li>Prepared food orders and maintained kitchen cleanliness in a fast-paced environment</li>
+              <li>Assisted customers and ensured accurate order fulfillment during peak hours</li>
+            </ul>
+          </div>
+          <div class="exp-item" style="border-color:rgba(0,229,255,.2)">
+            <div class="exp-header"><div class="exp-role">Associate of Science in Physics</div><div class="exp-date">Starting Fall 2026</div></div>
+            <div class="exp-company">Stark State College</div>
+          </div>
+          <div class="exp-item" style="border-color:rgba(0,229,255,.2)">
+            <div class="exp-header"><div class="exp-role">Robotics &amp; Automation — Certificate</div><div class="exp-date">Aug 2017 – May 2018</div></div>
+            <div class="exp-company">Wayne County Schools Career Center — Wooster, OH</div>
+            <ul class="exp-bullets"><li>Hands-on training in robotics systems, automation technology, and PLC programming</li><li>Earned PLC Rockwell Level I, Fanuc Level 1, and Yaskawa Motoman certifications</li></ul>
+          </div>
+          <div class="exp-item" style="border-color:rgba(0,229,255,.2)">
+            <div class="exp-header"><div class="exp-role">High School Diploma</div><div class="exp-date">Jun 2018</div></div>
+            <div class="exp-company">Smithville High School — Smithville, OH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-projects">
+      <div class="panel-inner">
+        <div class="panel-head"><p class="panel-ey">// 04 — Projects</p><h2 class="panel-title">What I've <em>built.</em></h2><div class="panel-bar"></div></div>
+        <div class="proj-grid">
+          <div class="proj-card" data-url="https://github.com/ansengs/tic-tac-toe-online" tabindex="0" role="link" aria-label="Open Tic-Tac-Toe Online project on GitHub">
+            <div class="proj-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="10" rx="3"/><path d="M8 13h4M10 11v4M16 12h.01M18 15h.01"/></svg></div>
+            <div class="proj-title">Tic-Tac-Toe Online <span class="proj-gh"><svg class="inline-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+            <div class="proj-desc">Real-time two-player web game built with Express 5 and Socket.IO 4.</div>
+            <div class="proj-tags"><span class="ptag">Node.js</span><span class="ptag">Express</span><span class="ptag">Socket.IO</span></div>
+          </div>
+          <div class="proj-card" data-url="https://github.com/ansengs" tabindex="0" role="link" aria-label="Open GitHub profile">
+            <div class="proj-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-13h-7l1-7z"/></svg></div>
+            <div class="proj-title">Automation &amp; App Experiments <span class="proj-gh"><svg class="inline-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+            <div class="proj-desc">Personal software experiments focused on mobile apps, tooling, automation, and learning projects.</div>
+            <div class="proj-tags"><span class="ptag">React Native</span><span class="ptag">Python</span><span class="ptag">APIs</span></div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M12 7V4M8.5 12h.01M15.5 12h.01M9 16h6M4 11H2M22 11h-2"/></svg></div>
+            <div class="proj-title">Robotics &amp; PLC Training</div>
+            <div class="proj-desc">Hands-on automation work with PLC programming, industrial robotics, and motion-control fundamentals.</div>
+            <div class="proj-tags"><span class="ptag">PLC</span><span class="ptag">Fanuc</span><span class="ptag">Yaskawa</span></div>
+          </div>
+        </div>
+        <div class="achievement">
+          <div class="ach-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 13v4M9 21h6M10 17h4"/></svg></div>
+          <div>
+            <div class="ach-title">RAMTEC State Competition — 4th Place</div>
+            <div class="ach-sub">Recognized for robotics and automation performance at the state level.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-contact">
+      <div class="contact-grid">
+        <div>
+          <div class="panel-head"><p class="panel-ey">// 05 — Contact</p><h2 class="panel-title">Let's <em>connect.</em></h2><div class="panel-bar"></div></div>
+          <p class="contact-bio"><strong>LinkedIn:</strong> Andrew Sengsourichanh — Wooster, OH. I’m interested in opportunities where software meets physical systems, automation, robotics, and practical engineering.</p>
+          <div class="contact-links">
+            <a class="clink" href="mailto:amsengsourichanh@gmail.com"><span class="clink-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span><span class="clink-label">Email</span><span class="clink-val">amsengsourichanh@gmail.com</span></a>
+            <a class="clink" href="https://github.com/ansengs" target="_blank" rel="noopener noreferrer"><span class="clink-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3 19c.5.1.7-.2.7-.5v-2c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.5 2.3 1.1 2.8.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.6-4.6 4.9.4.3.7 1 .7 2v2.7c0 .3.2.6.8.5A10 10 0 0 0 12 2z"/></svg></span><span class="clink-label">GitHub</span><span class="clink-val">github.com/ansengs</span></a>
+            <a class="clink" href="https://www.linkedin.com/in/ansengs/" target="_blank" rel="noopener noreferrer" aria-label="Open Andrew Sengsourichanh on LinkedIn"><span class="clink-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1.2 1.2"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1.2-1.2"/></svg></span><span class="clink-label">LinkedIn</span><span class="clink-val">linkedin.com/in/ansengs</span></a>
+          </div>
+        </div>
+        <div>
+          <div class="panel-head"><p class="panel-ey">// Certifications</p><h2 class="panel-title">Credentials.</h2><div class="panel-bar"></div></div>
+          <div class="cert-list">
+            <div class="cert-item"><div class="cert-badge-sm"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div><div><div class="cert-name">PLC Rockwell Level I</div><div class="cert-from">Rockwell / Allen-Bradley</div></div></div>
+            <div class="cert-item"><div class="cert-badge-sm"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M12 7V4M8.5 12h.01M15.5 12h.01M9 16h6M4 11H2M22 11h-2"/></svg></div><div><div class="cert-name">Fanuc Level 1</div><div class="cert-from">Industrial Robotics</div></div></div>
+            <div class="cert-item"><div class="cert-badge-sm"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h6l5-5-3-3-5 5H5v3z"/><path d="M13 12l3-3 3 3-3 3M16 9V4h4"/></svg></div><div><div class="cert-name">Yaskawa Motoman</div><div class="cert-from">DX100 Robotics</div></div></div>
+            <div class="cert-item"><div class="cert-badge-sm"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c2 2 8 2 10 0v-5M21 8v6"/></svg></div><div><div class="cert-name">Robotics &amp; Automation Certificate</div><div class="cert-from">Wayne County Schools Career Center</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
