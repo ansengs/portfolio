@@ -93,29 +93,28 @@
           <div class="panel-bar"></div>
         </div>
 
-        <!-- PORTRAIT + INTJ BLOCK -->
+        <!-- PROFILE + INTJ BLOCK -->
         <div class="about-hero">
           <div class="about-portrait-wrap">
-            <div class="about-portrait-frame">
-              <!-- Replace src with your actual portrait if hosting images on GitHub -->
+            <div class="about-portrait-frame profile-first-frame">
               <img
-                src="portrait.jpg"
-                alt="Andrew Sengsourichanh — First portrait, drawn in 10 hours, Junior year of high school"
-                class="about-portrait-img"
+                src="profile.jpg"
+                alt="Andrew Sengsourichanh profile picture"
+                class="about-portrait-img profile-first-img"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
               />
               <div class="about-portrait-fallback" style="display:none">
-                <svg viewBox="0 0 160 200" width="160" height="200" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="160" height="200" rx="4" fill="#0d1117"/>
-                  <circle cx="80" cy="70" r="35" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
-                  <path d="M30 160 Q80 120 130 160" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
-                  <text x="80" y="185" text-anchor="middle" fill="#00e5ff55" font-size="9" font-family="monospace">portrait.jpg</text>
+                <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="160" height="160" rx="12" fill="#0d1117"/>
+                  <circle cx="80" cy="62" r="30" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+                  <path d="M32 138 Q80 102 128 138" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+                  <text x="80" y="151" text-anchor="middle" fill="#00e5ff55" font-size="9" font-family="monospace">profile.jpg</text>
                 </svg>
               </div>
             </div>
             <div class="about-portrait-caption">
-              <span class="about-caption-tag">// first portrait</span>
-              <span class="about-caption-sub">Pencil · 10 hrs · Junior Year · Self-taught</span>
+              <span class="about-caption-tag">// profile picture</span>
+              <span class="about-caption-sub">Andrew Sengsourichanh · Wooster, OH</span>
             </div>
           </div>
 
@@ -123,19 +122,6 @@
             <div class="about-intj-badge">
               <span class="intj-label">INTJ-A</span>
               <span class="intj-sub">The Architect</span>
-            </div>
-            <div class="profile-card">
-              <img
-                src="profile.jpg"
-                alt="Andrew Sengsourichanh profile picture"
-                class="profile-card-img"
-                loading="lazy"
-              />
-              <div class="profile-card-copy">
-                <span class="profile-card-kicker">// current profile</span>
-                <strong>Andrew Sengsourichanh</strong>
-                <span>Developer, automation engineer, artist, and music maker from Wooster, OH.</span>
-              </div>
             </div>
             <p class="about-text">
               I'm Andrew — a self-taught developer, artist, and systems thinker from Wooster, OH.
@@ -168,7 +154,7 @@
             out, ship it.
           </p>
           <p class="about-text">
-            In the same spirit, my first portrait (shown above) was drawn in a single 10-hour session during my
+            In the same spirit, my first portrait (shown in the project gallery) was drawn in a single 10-hour session during my
             Junior year of high school — no formal training, just study and stubbornness. Graphic arts class gave me
             foundation in sculpture and drawing. Everything else I taught myself.
           </p>
@@ -177,10 +163,31 @@
         <!-- CREATIVE WORKS -->
         <div class="about-section">
           <h3 class="about-section-title"><span class="about-ey">02 /</span> Creative Work</h3>
-          <div class="creative-grid">
+          <div class="creative-grid project-picture-grid">
 
-            <div class="creative-card">
-              <div class="creative-thumb">
+            <div class="creative-card project-picture-card">
+              <div class="creative-thumb small-picture-thumb">
+                <img
+                  src="portrait.jpg"
+                  alt="Andrew Sengsourichanh pencil portrait project drawn in high school"
+                  class="creative-img"
+                  loading="lazy"
+                />
+                <div class="creative-overlay">
+                  <span class="creative-overlay-label">Portrait Drawing</span>
+                </div>
+              </div>
+              <div class="creative-info">
+                <div class="creative-title">First Portrait — 10-Hour Drawing</div>
+                <div class="creative-meta">Pencil · Junior Year · Self-Taught</div>
+                <p class="creative-desc">
+                  My first portrait, drawn in a single 10-hour session during junior year of high school.
+                </p>
+              </div>
+            </div>
+
+            <div class="creative-card project-picture-card">
+              <div class="creative-thumb small-picture-thumb">
                 <img
                   src="https://i.etsystatic.com/5142805/r/il/100945/3914278602/il_fullxfull.3914278602_n3d0.jpg"
                   alt="Circuit board world map — similar to Andrew's 3x3 ft wall art piece"
@@ -203,8 +210,8 @@
               </div>
             </div>
 
-            <div class="creative-card">
-              <div class="creative-thumb">
+            <div class="creative-card project-picture-card">
+              <div class="creative-thumb small-picture-thumb">
                 <img
                   src="https://cdn.dribbble.com/userupload/42443287/file/original-fbc2c0dba5aa1b749759ac223208916b.png"
                   alt="Food logging app UI — similar to Andrew's Adobe XD prototype"
@@ -227,8 +234,8 @@
               </div>
             </div>
 
-            <div class="creative-card">
-              <div class="creative-thumb">
+            <div class="creative-card project-picture-card">
+              <div class="creative-thumb small-picture-thumb">
                 <img
                   src="https://i.etsystatic.com/20984108/r/il/2f9197/3507798063/il_fullxfull.3507798063_qror.jpg"
                   alt="Cardboard sculpture — similar to Andrew's high school sculpture work"
@@ -251,8 +258,8 @@
               </div>
             </div>
 
-            <div class="creative-card">
-              <div class="creative-thumb creative-thumb-svg">
+            <div class="creative-card project-picture-card">
+              <div class="creative-thumb creative-thumb-svg small-picture-thumb">
                 <svg class="creative-svg-art" viewBox="0 0 320 240" role="img" aria-labelledby="garageband-title garageband-desc" xmlns="http://www.w3.org/2000/svg">
                   <title id="garageband-title">GarageBand song composition</title>
                   <desc id="garageband-desc">Abstract digital music composition with tracks, waveform, keyboard, and note shapes.</desc>

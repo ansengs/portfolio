@@ -394,3 +394,21 @@ body{min-width:320px;min-height:100%;min-height:100dvh;overflow:hidden}
 
 .audio-player-wrap{margin:10px 0 8px;padding:8px;border:1px solid rgba(0,229,255,.18);border-radius:8px;background:rgba(0,229,255,.04)}
 .audio-player-wrap audio{width:100%;display:block;height:34px}
+
+/* Compact picture layout requested: profile appears first; work images stay small like project thumbnails. */
+.profile-first-frame{width:150px;aspect-ratio:1/1;border-radius:14px}
+.profile-first-img{height:150px;object-fit:cover}
+.project-picture-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.project-picture-card .small-picture-thumb{aspect-ratio:1/1;max-height:150px}
+.project-picture-card .creative-info{padding:10px 11px}
+.project-picture-card .creative-title{font-size:12px}
+.project-picture-card .creative-meta{font-size:9px;margin-bottom:5px}
+.project-picture-card .creative-desc{font-size:11px;line-height:1.45;margin-bottom:6px}
+.project-picture-card .creative-note{font-size:9px}
+.project-picture-card audio{width:100%;max-height:34px}
+@media(max-width:760px){
+  .about-hero{grid-template-columns:1fr;gap:22px}
+  .about-portrait-wrap{align-items:flex-start}
+  .project-picture-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+  .project-picture-card .small-picture-thumb{max-height:130px}
+}
