@@ -93,28 +93,29 @@
           <div class="panel-bar"></div>
         </div>
 
-        <!-- PORTRAIT + INTRO -->
+        <!-- PORTRAIT + INTJ BLOCK -->
         <div class="about-hero">
           <div class="about-portrait-wrap">
             <div class="about-portrait-frame">
+              <!-- Replace src with your actual portrait if hosting images on GitHub -->
               <img
                 src="portrait.jpg"
-                alt="First portrait — pencil, 10 hours, Junior year of high school"
+                alt="Andrew Sengsourichanh — First portrait, drawn in 10 hours, Junior year of high school"
                 class="about-portrait-img"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
               />
               <div class="about-portrait-fallback" style="display:none">
-                <svg viewBox="0 0 120 150" width="120" height="150" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="120" height="150" rx="3" fill="#0d1117"/>
-                  <circle cx="60" cy="55" r="26" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
-                  <path d="M20 120 Q60 95 100 120" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
-                  <text x="60" y="142" text-anchor="middle" fill="#00e5ff44" font-size="8" font-family="monospace">portrait.jpg</text>
+                <svg viewBox="0 0 160 200" width="160" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="160" height="200" rx="4" fill="#0d1117"/>
+                  <circle cx="80" cy="70" r="35" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+                  <path d="M30 160 Q80 120 130 160" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+                  <text x="80" y="185" text-anchor="middle" fill="#00e5ff55" font-size="9" font-family="monospace">portrait.jpg</text>
                 </svg>
               </div>
             </div>
             <div class="about-portrait-caption">
               <span class="about-caption-tag">// first portrait</span>
-              <span class="about-caption-sub">Pencil · 10 hrs · Self-taught</span>
+              <span class="about-caption-sub">Pencil · 10 hrs · Junior Year · Self-taught</span>
             </div>
           </div>
 
@@ -124,15 +125,15 @@
               <span class="intj-sub">The Architect</span>
             </div>
             <p class="about-text">
-              Self-taught developer and artist from Wooster, OH. I work across
-              <strong>engineering and creative craft</strong> — automation systems, 3D modelling,
-              portrait drawing, and UI design — treating each discipline with the same methodical
-              planning and attention to detail.
+              I'm Andrew — a self-taught developer, artist, and systems thinker from Wooster, OH.
+              My work lives at the intersection of <strong>engineering precision</strong> and
+              <strong>creative craft</strong>: building automation systems by day, sculpting
+              worlds out of clay, circuitboards, and polygons in every spare moment.
             </p>
             <p class="about-text">
-              First coding project: a Python YouTube download manager built in a month — automated channel
-              downloads, organized with metadata, no tutorials. First portrait: 10 hours, Junior year,
-              no formal training.
+              I don't separate art from engineering — both demand the same methodical planning,
+              obsessive attention to detail, and drive to make something that <em>works</em> and
+              <em>looks like it means something</em>.
             </p>
             <div class="about-traits">
               <div class="trait-chip"><span class="trait-dot" style="background:#00e5ff"></span>Strategic Planner</div>
@@ -144,81 +145,163 @@
           </div>
         </div>
 
+        <!-- ORIGIN STORY -->
+        <div class="about-section">
+          <h3 class="about-section-title"><span class="about-ey">01 /</span> Origins</h3>
+          <p class="about-text">
+            My first serious coding project was a <strong>YouTube channel download manager</strong> — a month-long Python build
+            that automated downloading copyright-free channels, then organized and filtered every video with
+            metadata. No tutorial walked me through it. That's how I've always worked: pick a hard problem, plan it
+            out, ship it.
+          </p>
+          <p class="about-text">
+            In the same spirit, my first portrait (shown above) was drawn in a single 10-hour session during my
+            Junior year of high school — no formal training, just study and stubbornness. Graphic arts class gave me
+            foundation in sculpture and drawing. Everything else I taught myself.
+          </p>
+        </div>
+
         <!-- CREATIVE WORKS -->
         <div class="about-section">
-          <h3 class="about-section-title"><span class="about-ey">01 /</span> Creative Work</h3>
+          <h3 class="about-section-title"><span class="about-ey">02 /</span> Creative Work</h3>
           <div class="creative-grid">
 
             <div class="creative-card">
               <div class="creative-thumb">
-                <img src="https://i.etsystatic.com/5142805/r/il/100945/3914278602/il_fullxfull.3914278602_n3d0.jpg"
-                  alt="Circuit board world map reference" class="creative-img" loading="lazy"/>
+                <img
+                  src="https://i.etsystatic.com/5142805/r/il/100945/3914278602/il_fullxfull.3914278602_n3d0.jpg"
+                  alt="Circuit board world map — similar to Andrew's 3x3 ft wall art piece"
+                  class="creative-img"
+                  loading="lazy"
+                />
+                <div class="creative-overlay">
+                  <span class="creative-overlay-label">Circuit Board Art</span>
+                </div>
               </div>
               <div class="creative-info">
-                <div class="creative-title">World Map — Circuit Board</div>
-                <div class="creative-meta">Wall Art · ~3×3 ft</div>
-                <p class="creative-desc">Large-scale world map built from circuit boards. Original lost — reference shown.</p>
+                <div class="creative-title">World Map — Circuit Board Sculpture</div>
+                <div class="creative-meta">3D Sculpting · Wall Art · ~3×3 ft</div>
+                <p class="creative-desc">
+                  A large-scale world map constructed entirely from circuit boards — where electronics
+                  manufacturing skill meets visual art. Assembled piece by piece with the same precision
+                  used on the factory floor.
+                </p>
+                <div class="creative-note">⚠ Original lost — reference image shown</div>
               </div>
             </div>
 
             <div class="creative-card">
               <div class="creative-thumb">
-                <img src="https://cdn.dribbble.com/userupload/42443287/file/original-fbc2c0dba5aa1b749759ac223208916b.png"
-                  alt="Food logging app UI reference" class="creative-img" loading="lazy"/>
+                <img
+                  src="https://cdn.dribbble.com/userupload/42443287/file/original-fbc2c0dba5aa1b749759ac223208916b.png"
+                  alt="Food logging app UI — similar to Andrew's Adobe XD prototype"
+                  class="creative-img"
+                  loading="lazy"
+                />
+                <div class="creative-overlay">
+                  <span class="creative-overlay-label">Adobe XD · UI/UX</span>
+                </div>
               </div>
               <div class="creative-info">
-                <div class="creative-title">Food Logging App — UI</div>
-                <div class="creative-meta">Adobe XD · 2-Day Sprint</div>
-                <p class="creative-desc">Complete app UI prototype designed in Adobe XD. Original files unavailable — reference shown.</p>
+                <div class="creative-title">Food Logging App — UI Design</div>
+                <div class="creative-meta">Adobe XD · 2D Sculpting · 2-Day Sprint</div>
+                <p class="creative-desc">
+                  A complete food-tracking app UI designed in Adobe XD in just two days. Clean
+                  wireframes, prototyped interactions, and an organized component library — planned
+                  and delivered in one focused sprint.
+                </p>
+                <div class="creative-note">⚠ Original files unavailable — reference image shown</div>
               </div>
             </div>
 
             <div class="creative-card">
               <div class="creative-thumb">
-                <img src="https://i.etsystatic.com/20984108/r/il/2f9197/3507798063/il_fullxfull.3507798063_qror.jpg"
-                  alt="3D sculpture reference" class="creative-img" loading="lazy"/>
+                <img
+                  src="https://i.etsystatic.com/20984108/r/il/2f9197/3507798063/il_fullxfull.3507798063_qror.jpg"
+                  alt="Cardboard sculpture — similar to Andrew's high school sculpture work"
+                  class="creative-img"
+                  loading="lazy"
+                />
+                <div class="creative-overlay">
+                  <span class="creative-overlay-label">Sculpture · 3D</span>
+                </div>
               </div>
               <div class="creative-info">
-                <div class="creative-title">Sculpture — High School</div>
-                <div class="creative-meta">Clay · Busts · Armor · Mannequins</div>
-                <p class="creative-desc">Graphic arts foundation: sculpted busts, mannequins, armor, and figures from clay and mixed materials. Original lost — reference shown.</p>
+                <div class="creative-title">3D Sculpture — High School Era</div>
+                <div class="creative-meta">Clay · Cardboard · Busts · Armor · Mannequins</div>
+                <p class="creative-desc">
+                  Graphic arts in high school was where the craft began — sculpting busts,
+                  mannequins, armor, and full figure forms from clay and mixed materials. The
+                  same spatial thinking now goes into Blender models and AutoCAD drawings.
+                </p>
+                <div class="creative-note">⚠ Original lost — reference image shown</div>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- MEDIUMS -->
+        <!-- CREATIVE MEDIUMS LIST -->
         <div class="about-section">
-          <h3 class="about-section-title"><span class="about-ey">02 /</span> Mediums &amp; Tools</h3>
+          <h3 class="about-section-title"><span class="about-ey">03 /</span> Mediums &amp; Tools</h3>
           <div class="mediums-grid">
-            <div class="medium-block"><div class="medium-name">Portrait Drawing</div><div class="medium-detail">Pencil · self-taught</div></div>
-            <div class="medium-block"><div class="medium-name">Clay / Pottery</div><div class="medium-detail">Figurative &amp; vessel forms</div></div>
-            <div class="medium-block"><div class="medium-name">Blender — 3D</div><div class="medium-detail">Characters · props · maps</div></div>
-            <div class="medium-block"><div class="medium-name">AutoCAD — 3D</div><div class="medium-detail">Mechanical &amp; architectural models</div></div>
-            <div class="medium-block"><div class="medium-name">Wall Art</div><div class="medium-detail">Large-format mixed-media</div></div>
-            <div class="medium-block"><div class="medium-name">Adobe XD — UI</div><div class="medium-detail">Wireframe-to-prototype design</div></div>
+            <div class="medium-block">
+              <div class="medium-icon">✏️</div>
+              <div class="medium-name">Portrait Drawing</div>
+              <div class="medium-detail">Pencil, graphite — self-taught through study and practice</div>
+            </div>
+            <div class="medium-block">
+              <div class="medium-icon">🏺</div>
+              <div class="medium-name">Clay / Pottery</div>
+              <div class="medium-detail">Wheel throwing, hand-building; figurative and vessel forms</div>
+            </div>
+            <div class="medium-block">
+              <div class="medium-icon">🎮</div>
+              <div class="medium-name">Blender — 3D</div>
+              <div class="medium-detail">Comic book characters, props, map environments, scene design</div>
+            </div>
+            <div class="medium-block">
+              <div class="medium-icon">📐</div>
+              <div class="medium-name">AutoCAD — 3D</div>
+              <div class="medium-detail">Precision mechanical and architectural 3D modelling</div>
+            </div>
+            <div class="medium-block">
+              <div class="medium-icon">🖼️</div>
+              <div class="medium-name">Wall Art / Mural</div>
+              <div class="medium-detail">Large-format 2D sculpting and mixed-media installation</div>
+            </div>
+            <div class="medium-block">
+              <div class="medium-icon">📱</div>
+              <div class="medium-name">Adobe XD — UI</div>
+              <div class="medium-detail">Wireframe-to-prototype UI/UX design; app and web interfaces</div>
+            </div>
           </div>
         </div>
 
-        <!-- PERSONAL -->
+        <!-- OUTDOOR / PERSONAL -->
         <div class="about-section">
-          <h3 class="about-section-title"><span class="about-ey">03 /</span> Outside Work</h3>
+          <h3 class="about-section-title"><span class="about-ey">04 /</span> Beyond the Screen</h3>
           <p class="about-text">
-            Active cyclist (Urlife E20), sports, biblical study, music, and travel. I focus on
-            building things — tools, skills, and habits — that improve both my own capabilities
-            and the community around me.
+            When I'm not building something, I'm outside — biking, exploring, or finding ways to
+            contribute to the community around me. I ride my <strong>Urlife E20 electric bike</strong>
+            daily, walk regularly, and stay active as part of a deliberate approach to health and focus.
+          </p>
+          <p class="about-text">
+            I care about <strong>improving society</strong> as much as improving my own experience.
+            Whether that's contributing open-source tools, building something that helps people learn,
+            or staying curious about physics, music, theology, and language — I'm always building
+            toward something bigger than the current project.
           </p>
           <div class="about-interests">
-            <span class="interest-tag">Cycling</span>
-            <span class="interest-tag">Basketball</span>
-            <span class="interest-tag">Soccer</span>
-            <span class="interest-tag">Tennis</span>
-            <span class="interest-tag">Ping-Pong</span>
-            <span class="interest-tag">Electronic / Hip-Hop</span>
-            <span class="interest-tag">Biblical Study</span>
-            <span class="interest-tag">Travel</span>
-            <span class="interest-tag">Fashion</span>
+            <span class="interest-tag">🚴 Cycling</span>
+            <span class="interest-tag">🏀 Basketball</span>
+            <span class="interest-tag">⚽ Soccer</span>
+            <span class="interest-tag">🎾 Tennis</span>
+            <span class="interest-tag">🏓 Ping-Pong</span>
+            <span class="interest-tag">🎵 Electronic / Hip-Hop</span>
+            <span class="interest-tag">✝ Biblical Study</span>
+            <span class="interest-tag">🌍 Travel</span>
+            <span class="interest-tag">👗 Fashion</span>
           </div>
         </div>
 
