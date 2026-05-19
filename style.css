@@ -280,6 +280,26 @@ body{min-width:320px;min-height:100%;min-height:100dvh;overflow:hidden}
 .about-caption-tag{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:.06em;text-align:center}
 .about-caption-sub{display:block;font-size:11px;color:#6b7280;text-align:center;margin-top:3px;line-height:1.4}
 
+
+.profile-card{
+  display:flex;align-items:center;gap:14px;
+  background:#0d1117;border:1px solid #1a2332;border-radius:10px;
+  padding:12px;margin:0 0 18px;box-shadow:0 0 18px #00e5ff0d;
+}
+.profile-card-img{
+  width:88px;height:88px;object-fit:cover;border-radius:10px;
+  border:1px solid #00e5ff33;flex-shrink:0;
+}
+.profile-card-copy{display:flex;flex-direction:column;gap:4px;color:#9ca3af;font-size:12px;line-height:1.45}
+.profile-card-copy strong{font-family:'Exo 2',sans-serif;color:#e2e8f0;font-size:15px}
+.profile-card-kicker{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:10px;letter-spacing:.06em}
+.creative-thumb-svg{display:flex;align-items:center;justify-content:center}
+.creative-svg-art{width:100%;height:100%;display:block}
+@media(max-width:480px){
+  .profile-card{align-items:flex-start}
+  .profile-card-img{width:74px;height:74px}
+}
+
 /* INTJ badge */
 .about-intj-badge{
   display:inline-flex;align-items:baseline;gap:10px;
@@ -316,7 +336,7 @@ body{min-width:320px;min-height:100%;min-height:100dvh;overflow:hidden}
 .about-ey{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);font-weight:400}
 
 /* Creative work grid */
-.creative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.creative-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .creative-card{background:#0d1117;border:1.5px solid #1a2332;border-radius:8px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
 .creative-card:hover{border-color:#00e5ff44;box-shadow:0 0 20px #00e5ff10}
 .creative-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0a0f18}
@@ -358,6 +378,9 @@ body{min-width:320px;min-height:100%;min-height:100dvh;overflow:hidden}
 .interest-tag:hover{border-color:#00e5ff44;color:#e2e8f0}
 
 /* Responsive: about */
+@media(max-width:900px){
+  .creative-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:720px){
   .about-hero{grid-template-columns:1fr;gap:24px}
   .about-portrait-wrap{flex-direction:row;align-items:flex-start}
@@ -369,8 +392,5 @@ body{min-width:320px;min-height:100%;min-height:100dvh;overflow:hidden}
   .about-portrait-wrap{flex-direction:column;align-items:center}
 }
 
-/* Inline SVG replacements for former emoji icons */
-.inline-svg{width:1.05em;height:1.05em;display:inline-block;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
-.creative-note{display:flex;align-items:center;gap:6px}
-.medium-icon{display:flex;align-items:center;justify-content:center;color:#00e5ff}
-.interest-tag{display:inline-flex;align-items:center;gap:6px}
+.audio-player-wrap{margin:10px 0 8px;padding:8px;border:1px solid rgba(0,229,255,.18);border-radius:8px;background:rgba(0,229,255,.04)}
+.audio-player-wrap audio{width:100%;display:block;height:34px}
